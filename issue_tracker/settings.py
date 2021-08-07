@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'issue_tracker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.postgres',
         'NAME': 'issue_tracker',
         'USER': 'root',
         'PASSWORD': 'root',
@@ -151,5 +151,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 # try and make this an environment variable if possible (not plaint text)
-EMAIL_HOST_USER = 'brennerapps.noreply@gmail.com'
-EMAIL_HOST_PASSWORD = 'crmgmaiaoagtqamt'
+EMAIL_HOST_USER = os.environ.get(EMAIL_USER)
+EMAIL_HOST_PASSWORD = os.environ.get(EMAIL_PASS)
