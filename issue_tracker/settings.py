@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,7 +80,7 @@ WSGI_APPLICATION = 'issue_tracker.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'issue_tracker',
         'USER': 'root',
         'PASSWORD': 'root',
@@ -150,6 +151,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-# try and make this an environment variable if possible (not plaint text)
-EMAIL_HOST_USER = os.environ.get(EMAIL_USER)
-EMAIL_HOST_PASSWORD = os.environ.get(EMAIL_PASS)
+EMAIL_HOST_USER = 'brennerapps.noreply@gmail.com'
+EMAIL_HOST_PASSWORD = 'crmgmaiaoagtqamt'
+
+django_heroku.settings(locals())
