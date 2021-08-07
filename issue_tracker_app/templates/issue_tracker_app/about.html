@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About - Issue Tracker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <meta name="author" content="Collyn Brenner">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .w3-bar,h1,button,a {font-family: "Montserrat", sans-serif}
+    .theader,body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/main.css' %}">
+    <script defer>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else { 
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-teal" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="{% url 'track:track-about' %}" class="w3-bar-item w3-button w3-padding-large w3-black w3-hover-white">Issue Tracker</a>
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Profile</a>
+        <span class="w3-bar-item w3-hide-small w3-padding-large w3-teal">Project</span>
+        <span class="w3-bar-item w3-hide-small w3-padding-large">Issue</span>
+        <a href="{% url 'track:track-about' %}"><i class="w3-bar-item w3-large fa fa-info-circle w3-hover-opacity w3-padding-16 w3-right"></i></a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-padding-large">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-padding-large">Profile</a>
+        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Project</span>
+        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Issue</span>
+    </div>
+</div>
+
+<p class="w3-quarter"> </p>
+<article class="w3-container w3-half w3-white w3-padding-64">
+    
+    <br />
+
+    <!-- Header -->
+    <header class="w3-container w3-teal w3-center w3-padding-16" style="padding:128px 16px">
+        <h2>About Issue Tracker</h2>
+    </header>
+
+    <!-- First Grid -->
+    <div class="w3-container w3-row-padding w3-black w3-padding">
+        <p>Welcome to Issue Tracker, a tool for keeping project to-do list items tracked, organized, and accessible. This issue tracker was designed to be used for software development feature implementation and bug tracking contexts but it can be applied to other contexts too such as any kind of personal project, business project, customer service issue list, as a task manager, and many more. Issue Tracker is free for small projects and demonstration purposes and may be expanded for future purposes (<em>see Production and Purpose below</em>). </p>
+        <br />
+        <h4>How 'Issue Tracker' is Designed</h4>
+        <p>This app was designed to be intuitive to learn through using and navigating between pages. The navigation bar highlights the section of the app that you are currently in and then changes when you move to a new location within the app. It is structured in a three-part hierarchy where the user creates projects followed by creating issues within a specific project. You can always return to the parents and grandparents of the current location you are in by clicking on the navigation item to the left of where your are but to view or work on children and grandchildren of your current location, you must choose which child or grandchild you would like to go into within the current page, taking you further down the hierarchy. You'll see the Logout as left-most (save for the app title) which is then followed by Profile, Project, and Issue as the three levels of the app. </p>
+        <p>[This About page can be accessed by clicking on the Issue Tracker button on the top nav, from clicking on '***Produced by Collyn Christopher Brenner***' at the bottom or on the information icon in the upper right corner in the top nav.]</p>
+        <br />
+        <h4>Technologies Used</h4>
+        <p>Issue Tracker utilizes Python, Django, HTML5, CSS3, W3.CSS, vanilla JavaScript, MySQL, and Linux server. It was developed in Django which uses the Python programming language and MVT architectural design pattern is required as a part of the Django framework (similar to the MVC design pattern). MySQL was chosen as the development and production database. A large majority of styles implemented are made possible by W3.CSS responsive classes which can be described as a simpler version of Twitter Bootstrap that does not use Jquery and which has an overall clean, paper-like appearance. CSS3 is used for footer placement and various fonts within the largely altered W3.CSS responsive base template. JavaScript was used for sorting functions on rendered table data. Linode is being used for hosting the web app's Linux server.</p>
+        <br />
+        <h4>Production and Purpose</h4>
+        <p>'Issue Tracker' was created during a 6-week class over the span of less than 5 weeks as a capstone project by Collyn Christopher Brenner to fulfill two purposes. The first of these was to submit as a capstone project in finishing up his undergrad as a Computer Information Technology major. The second purpose was to be exactly what the class intended the project to be: A portfolio artifact to not just tell but to <em> show </em> the kind of knowledge and skills Collyn had acquired while in school at Trevecca Nazarene University. </p>
+        <br />
+        <a href="{% url 'track:track-for-learner' %}" class="w3-button w3-teal w3-hover-white w3-medium w3-border-0">
+            For the Learner: How I Learned to Do This and How You Can Too
+        </a>
+    </div>
+</article>
+<p class="w3-rest"> </p>
+<b></b>
+<!-- Footer -->
+<footer class="w3-container w3-black w3-center w3-opacity w3-padding-small footer">  
+    <div class="w3-xlarge">
+        <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+        <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+        <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+        &nbsp;&nbsp;&nbsp;
+        <span  class="w3-text-grey w3-medium">***Produced by Collyn Christopher Brenner <em>(about this app)</em>***</span>
+    </div>
+</footer>
+</body>
+</html>

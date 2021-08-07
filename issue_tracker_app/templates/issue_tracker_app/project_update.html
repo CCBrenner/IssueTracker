@@ -1,0 +1,58 @@
+{% extends "issue_tracker_app/track_base.html" %}
+{% block title %}
+<title>{{ project.title }} - Issue Tracker</title>
+{% endblock %}
+{% block navbar %}
+<div class="w3-top">
+    <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-teal" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="{% url 'track:track-about' %}" class="w3-bar-item w3-button w3-padding-large w3-white">Issue Tracker</a>
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Profile</a>
+        <a href="{% url 'track:track-project-details' project.slug %}"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-black w3-hover-white">Project</a>
+        <span class="w3-bar-item w3-hide-small w3-padding-large">Issue</span>
+        <a href="{% url 'track:track-about' %}"><i class="w3-bar-item w3-large fa fa-info-circle w3-hover-opacity w3-padding-16 w3-right"></i></a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-padding-large">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-padding-large">Profile</a>
+        <a href="{% url 'track:track-project-details' project.slug %}" class="w3-bar-item w3-button w3-padding-large">Project</a>
+        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Issue</span>
+    </div>
+</div>
+{% endblock %}
+{% block headertable %}
+    <table class="w3-table">
+        <tr>
+            <th><h3>Current User Profile :</h3></th>
+            <td><h3>{{ user.first_name }} {{ user.last_name }}</h3></td>
+            <th>Username :</th>
+            <td>{{ user.username }}</td>
+            <th>Email :</th>
+            <td>{{ user.username }}</td>
+        </tr>
+    </table>
+{% endblock %}
+{% block body %}
+    <h3 class="w3-left-align">
+        Update Project
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="{% url 'track:track-project-delete' project.slug %}" class="w3-button w3-black w3-medium w3-border-0">
+            Delete
+        </a>
+        <a href="{% url 'track:track-home' %}" class="w3-button w3-black w3-medium w3-border-0">
+            Profile
+        </a>
+    </h3>
+    <br />
+    <form method="POST" enctype="multipart/form-data/" class="w3-left-align">
+        {% csrf_token %}
+        <fieldset class="w3-teal w3-border-0">
+            {{ form.as_p }}
+        </fieldset>
+        <br />
+        <button type="submit" class="w3-button w3-black">Update</button>
+    </form>
+{% endblock body %}

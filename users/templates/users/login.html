@@ -1,0 +1,23 @@
+{% extends 'users/users_base.html' %}
+{% block entryform %}
+<section class="w3-container w3-left-align">
+    <br />
+    <h4 class="w3-left-align">Login</h4>
+    <br />
+    <form method="POST" class="w3-left-align">
+        {% csrf_token %}
+        <fieldset class="w3-black w3-border-0">
+            {{ form.as_p }}
+        </fieldset>
+        <br />
+        <button type="submit" class="w3-button w3-black w3-hover-white">Login</button>
+    </form>
+    <br />
+    <small>Need an Account? <a href="{% url 'users-register' %}">Sign Up Now</a></small>
+    <br />
+    <small>Forgot your password? <a href="{% url 'password-reset' %}">Recover Password</a></small>
+</section>    
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+{% endblock entryform %}

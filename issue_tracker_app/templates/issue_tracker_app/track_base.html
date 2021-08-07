@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block title %}{% endblock %}	
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <meta name="author" content="Collyn Brenner">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .w3-bar,h1,button,a {
+        font-family: "Montserrat", sans-serif;
+        text-decoration: None;
+    }
+    .theader,body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/main.css' %}">
+    <script defer>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else { 
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</head>
+<body>
+
+<!-- Navbar -->
+{% block navbar %}{% endblock %}
+
+<!-- Header -->
+<header class="w3-container w3-teal w3-center w3-padding-16" style="padding:128px 16px">
+    <br /><br /><br />
+    <div>
+        {% block headertable %}{% endblock %}
+    </div>
+    <div class="w3-rest"><p></p></div>
+</header>
+
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-32 w3-container">
+    <div class="w3-content">
+        <div class="w3-rest w3-center">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+    <br /><br />
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-black w3-center w3-opacity w3-padding-small footer">  
+    <div class="w3-xlarge">
+        <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+        <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+        <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+        &nbsp;&nbsp;&nbsp;
+        <a href="{% url 'track:track-about' %}" class="w3-text-grey w3-medium">***Produced by Collyn Christopher Brennner***</a>
+    </div>
+</footer>
+</body>
+</html>
+{% block javascript %}
+{% endblock %}

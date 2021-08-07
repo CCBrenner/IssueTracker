@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>For The Learner - Issue Tracker</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <meta name="author" content="Collyn Brenner">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .w3-bar,h1,button,a {font-family: "Montserrat", sans-serif}
+    .theader,body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+    .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'users/main.css' %}">
+    <script defer>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else { 
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-teal" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="{% url 'track:track-about' %}" class="w3-bar-item w3-button w3-padding-large w3-black w3-hover-white">Issue Tracker</a>
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Profile</a>
+        <span class="w3-bar-item w3-hide-small w3-padding-large w3-teal">Project</span>
+        <span class="w3-bar-item w3-hide-small w3-padding-large">Issue</span>
+        <a href="{% url 'track:track-about' %}"><i class="w3-bar-item w3-large fa fa-info-circle w3-hover-opacity w3-padding-16 w3-right"></i></a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-padding-large">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-padding-large">Profile</a>
+        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Project</span>
+        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Issue</span>
+    </div>
+</div>
+
+<p class="w3-quarter"> </p>
+<article class="w3-container w3-half w3-white w3-padding-64">
+    
+    <br />
+
+    <!-- Header -->
+    <header class="w3-container w3-teal w3-center w3-padding-16" style="padding:128px 16px">
+        <h2>For the Learner: How I Learned to Do This and How You Can Too</h2>
+    </header>
+
+    <!-- First Grid -->
+    <div class="w3-container w3-row-padding w3-black w3-padding">
+        <br />
+        <h4>Background</h4>
+        <p>Python and Django, the main technologies used in this web app (and most other technologies used here), are not offered as educational subjects at Trevecca and were learned and practiced in my (Collyn's) own time using video courses such as Udemy for Python, CoreyMS's YouTube series for Django, W3 Schools documentation and hands-on tutorials, YouTube and many other documentation and video resources. This app would not exist without the tons of internet teachers and resources of the internet, the makers of which I must express my gratitude toward. Thank you to all the teachers and resource providers of the internet for making this app possible.</p>
+        <p>My self-teaching aims in software engineering are largely concept and project oriented, consisting of notation (typically from a video course) followed by implementation. Reinforcement occurred by current project demands, multiple projects, and expected future project and professional demands via critical and holistic thinking. The goal of educational projects like this one were (1) to increase familiarity and experience with all that is essential in using these technologies and (2) to improve resourcefulness and perseverance. Videos of experienced programmers sharing their wisdom provided at times productive, high-level perspective improvements which recentered me when I felt lost, at a loss and like I wanted to give up.</p>
+        <h4>How I Came to Do This</h4>
+        <p>This is how I did this – I motivated myself to get educated and skilled in relevant subject matter (perhaps one of the most important GET requests in my life). It was unfortunate that even when I finally figured out what major I would complete in college that I was still left wanting for the kind of education and skills that would allow me to make the future I want and could be proud of. It was unfortunate that I didn't realize what college, or specifically Trevecca, was about - what they valued as opposed to what my values are, and what they claimed to offer compared to what I would find.</p>
+        <p>People go to colleges for a bunch of different reasons, but if you want to get a valuable education and become skilled in a certain profession you need to do your research. It's hard to find a college that cares about you and which cares about who you want to become AND THEN help you get there with competence and confidence. I find that many colleges only offer one or none of these things (overall it seems colleges manifest in a number of ways to lure in the naïve, inexperienced student in many cases, myself being a casualty, but who still refused to stray from the intentions I had when I entered college. It's too easy to get lost in the meaninglessness and freedom of these places.)</p> 
+        <p>You can learn a whole lot in college but if you want to find direction and purpose for your life you need to look within yourself and search rigorously, asking life's important and difficult questions of yourself and about what you can observe from the world around you to give the totality of your life's components a fair trial. It will likely require you to do some searching within yourself and outside of yourself and bring about new questions that you couldn't imagine before. I've come to see these as invaluable assets and won't ever let myself end up in the same place that I found myself. That was a hard place to find myself in, be in, and get out of. I consider myself a fortunate one out of many college occupants.</p>
+        <br /><br />
+        <h4 class="w3-center">How <b>You</b> Can Do This!</h4>
+        <p>So how can you do something like this? How can you learn to create and develop software products? Well know that you're going to need to learn a lot but that you can do it so long as you are willing to put in the time and dedicate yourself to learning it. Know that the documentation of the technology you're working with is your best friend and that visual reading is faster than videos but videos can assist in grappling with a concept or process better in many cases. Expect to read a lot. Ask the most specific and relevant questions you can, go find the answers, and then do something with those answers. I chose to make projects that utilize different technologies that I learned about to employ this kind of process.</p>
+        <p>No matter what do not give up. Endurance and perseverance are key. If you get frustrated with a problem that you can't solve take some time on it, take a break, come back to it, learn a little more, reach out to more experienced people on different forums, and repeat until you figure it out and succeed. Every inch is a mile in many cases; you'll feel great when you push through to solve an issue and finally emerge victorious. Sometimes all it takes is revisiting it on another day.</p>
+        <p>Don't be afraid of something new or something that is hard to believe because a lot of things are going to be new and technology will do somethings you can hardly believe sometimes. Get used to what you need to so that it becomes second nature to you instead of being something that you want to run away from or procrastinate on. </p>
+        <p>Small steps are usually better for learning purposes than large ones and often times are required before doing larger things - but sometimes large steps are required to learn certain things too. Give each of these your best shot and if something doesn't work out, step back, assess the situation, break it down into its component parts as far as you need to (if not entirely), and if you need to, then, try something different or learn something more. Like Apple's old slogan used to say, 'Think Different'. </p>
+        <p>Pay attention to the interactions between things, whether it be modules, components, functions, files, systems or what have you. Many people can write code, but the real value is understanding both the 10,000-foot perspective and the ground-level perspective with everything in-between at the same time. Really, its the behavior of different technologies that will tell you a lot about how something works and whether doing one thing or another might work or not work.</p>
+        <p>Focus on the terminology and try to think in those terms so as to make it your jargon. Own it; make it yours so that you own it instead having it not be yours, leaving you standing alien to and from it. Focus on conceptual differences such as how syntax and semantics are all that a programming language is and that each programming language has much of the same <b>semantics</b> but with key differences in <b>syntax</b> that you have to know for the dumb computers to understand you correctly (the semantics ('the meaning') are 100% your responsibility in figuring out how to tell the dumb computer how to do what you want it to based on what it can understand, which is limited). </p>
+        <p>Understand the problem first, and then find the solution and implement it.</p>
+        <p>Have fun with your learning process and listen to experts in the field on YouTube and other platforms. Their perspectives are informed by years of failures and successes, and in programming you don't get the successes without suffering the failures first. Their advice can be worlds of help in how you frame the problem you are facing. It's all about the perspective you have.</p>
+        <p>This also means that you learn from your failures, just like new businesses do. Fail fast and fail often – you'll learn a lot from doing that. In a way, your failures are your greatest successes in programming. Make sure after you fail that you take the right actions to turn the failure into a success. (To put it in perspective, Amazon CEO Jeff Bezos says his company has failed in over a billion dollars of ways and he prides himself on it because of what the company been able to learn and make from them - how those failures, those new ideas and adventures, are what has made key differences in the Amazon that we see today.)</p>
+        <p>Just think, in one year both you and I  could learn all these things and much more compared to having learned little of and about it at university in what, for me, took 5 years (<em>see the program Alice which uses Java with drop-down statements for text editing; see also some 7-year-old HTML textbook and non-comprehensive responsive CSS and JavaScript course</em>). Sure, I learned about a lot of other stuff that I came to find out is mostly neglected by the businesses world nowadays as a liability rather than as an asset, and yes, whatever I learned there I will take with me. However, the key areas of finding my purpose in life and finding my drive and direction were things that I got little help with at university; these were things that I had to do on my own. That pursuit has been one of my greatest adventure yet.</p>
+        <p>You could have much more success in college and your education than I did if you focus on what matters to you and what you want to do with your life. You only get one of those for certain. Sacrifices made in one area can be gained as rewards in other areas if you sacrifice with intention. It would probably be a good idea to consider what the general good is for you, for your family, for your community, for your nation, and for the world as a whole in seeking to harmonize the good of each with each other – In what ways can you be the greatest force for good in the world? I didn't have those things figured out or thought through very well and ended up going into overtime at university. Don't do what I did: Try new things, fail fast and figure things out. What you do after you fail is what makes the difference. Figure out as much as you can as fast as you can for the moment and realize that some things will have to be learned later. Search for the best deals while considering as many factors as you can about each option, go with your best one and commit to it. Don't be afraid to change course when you should; ignore sunk costs (this is an economics term worth knowing), go with your new, best option (because opportunities don't stick around very long in most cases). Learn how to walk into new phases of life with boldness and confidence, the latter of which is acquired through critical and holistic thinking, training, and practice.</p>
+        <p>And don't worry too much. That kind of sucks.</p>
+        <br />
+        <a href="{% url 'track:track-about' %}" class="w3-button w3-teal w3-hover-white w3-medium w3-border-0">
+            About Issue Tracker
+        </a>
+    </div>
+</article>
+<p class="w3-rest"> </p>
+<b></b>
+<!-- Footer -->
+<footer class="w3-container w3-black w3-center w3-opacity w3-padding-small footer">  
+    <div class="w3-xlarge">
+        <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+        <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+        <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+        &nbsp;&nbsp;&nbsp;
+        <span  class="w3-text-grey w3-medium">***Produced by Collyn Christopher Brenner <em>(about this app)</em>***</span>
+    </div>
+</footer>
+</body>
+</html>

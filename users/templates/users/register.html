@@ -1,0 +1,16 @@
+{% extends 'users/users_base.html' %}
+{% block entryform %}
+<br />
+<h4 class="w3-left-align">&nbsp;&nbsp;Create New Account</h4>
+<br />
+<form method="POST" class="w3-left-align">
+    {% csrf_token %}
+    <fieldset class="w3-black w3-border-0">
+        {{ form.as_p }}
+    </fieldset>
+    <br />
+    <button type="submit" class="w3-btn w3-black w3-hover-white">Register</button>
+</form>
+<small>Already have an Account? <a href="{% url 'users-login' %}">Login</a></small>
+<br /><br /><br /><br />
+{% endblock entryform %}

@@ -1,0 +1,135 @@
+{% extends "issue_tracker_app/track_base.html" %}
+{% block title %}
+<title>{{ project.title }} - Issue Tracker</title>
+{% endblock %}	
+{% block navbar %}
+<div class="w3-top">
+    <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-teal" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="{% url 'track:track-about' %}" class="w3-bar-item w3-button w3-padding-large w3-white">Issue Tracker</a>
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Profile</a>
+        <a href="{% url 'track:track-project-details' project.slug %}"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-black w3-hover-white">Project</a>
+        <span class="w3-bar-item w3-hide-small w3-padding-large">Issue</span>
+        <a href="{% url 'track:track-about' %}"><i class="w3-bar-item w3-large fa fa-info-circle w3-hover-opacity w3-padding-16 w3-right"></i></a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-padding-large">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-padding-large">Profile</a>
+        <a href="{% url 'track:track-project-details' project.slug %}" class="w3-bar-item w3-button w3-padding-large">Project</a>
+        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Issue</span>
+    </div>
+</div>
+{% endblock %}
+{% block headertable %}
+        <table class="w3-table">
+            <tr>
+                <div class="w3-third">
+                    <th><h3>Current Project:</h3></th>
+                    <td><h3>{{ project.title }}</h3></td>
+                </div>
+                <div class="w3-third">
+                    <th>Description: </th>
+                    <td>{{ project.description }}</td>
+                </div>
+                <td class="w3-third w3-centered">
+                    <a href="{% url 'track:track-project-update' project.slug %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        </table>
+{% endblock headertable %}
+{% block body %}
+<h3 class="w3-left-align">
+
+    Issues
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'track:track-issue-create' project.slug %}" class="w3-button w3-black w3-medium w3-border-0">
+        Create
+    </a>
+    <a href="{% url 'track:track-home' %}" class="w3-button w3-black w3-medium w3-border-0">
+        Profile
+    </a>
+</h3>
+<br />
+<table id="myTable" class="w3-table w3-responsive">
+    <tr class="w3-centered w3-black w3-opacity w3-center">
+        <th></th>
+        <th><button class="w3-btn w3-padding-small theader" onclick="sortTable(2)">#</button></th>
+        <th><button class="w3-btn w3-padding-small theader" onclick="sortTable(3)">Subject</button></th>
+        <th><button class="w3-btn w3-padding-small theader" onclick="sortTable(4)">Content</button></th>
+        <!-- <th>Creator</th>  # for a future update -->
+        <th><button class="w3-btn w3-padding-small theader" onclick="sortTable(5)">Worker</button></th>
+        <th><button class="w3-btn w3-padding-small theader" onclick="sortTable(6)">Created</button></th>
+        <th><button class="w3-btn w3-padding-small theader" onclick="sortTable(7)">Updated</button></th>
+        <th><button class="w3-btn w3-padding-small theader" onclick="sortTable(8)">Priority</button></th>
+        <th><button class="w3-btn w3-padding-small theader" onclick="sortTable(9)">Diff.</button></th>
+        <th><button class="w3-btn w3-padding-small theader" onclick="sortTable(10)">Status</button></th>
+    </tr>
+    {% for issues in project.issue_set.all %}
+        <tr class="w3-teal w3-hover-white">
+            <td>
+                <a href="{% url 'track:track-issue-details' issues.slug %}" class="w3-button w3-black w3-small">
+                    View
+                </a>
+            </td>
+            </td>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ issues.title }}</td>
+            <td>{{ issues.content }}</td>
+            <!-- <td>{{ issues.creator }}</td>  # for a future update -->
+            <td>{{ issues.worker }}</td>
+            <td>{{ issues.date_created|date:"n/j/y" }}</td>
+            <td>{{ issues.last_updated|date:"n/j/y" }}</td>
+            <td>{{ issues.priority }}</td>
+            <td>{{ issues.difficulty }}</td>
+            <td>{{ issues.status }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock body %}
+{% block javascript %}
+<script>
+function sortTable(columnNum){
+    var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+    table = document.getElementById("myTable");
+    columnNum -= 1;
+    switching = true;
+    dir = "asc"; 
+    while (switching) {
+        switching = false;
+        rows = table.rows;
+        for (i = 1; i < (rows.length - 1); i++) {
+            shouldSwitch = false;
+            x = rows[i].getElementsByTagName("TD")[columnNum].textContent.toLowerCase();
+            y = rows[i + 1].getElementsByTagName("TD")[columnNum].textContent.toLowerCase();
+            let xInt = parseInt(x);
+            let yInt = parseInt(y);
+            if (dir === "asc") {
+                if(x === xInt.toString() && y === yInt.toString()){
+                    if (xInt > yInt) { shouldSwitch=true; break; }
+                } else { 
+                    if (x > y) { shouldSwitch=true; break; } 
+                }
+            } else if (dir === "desc") {
+                if(x === xInt.toString() && y === yInt.toString()){
+                    if (xInt < yInt) { shouldSwitch=true; break; }
+                } else { 
+                    if (x < y) { shouldSwitch=true; break; } 
+                }
+            }
+        }
+        if (shouldSwitch) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            switching = true;
+            switchcount ++;      
+        } else {
+            if (switchcount === 0 && dir === "asc") { dir = "desc"; switching = true; }
+        }
+    }
+}
+    </script>
+{% endblock %}

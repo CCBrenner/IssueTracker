@@ -1,0 +1,93 @@
+{% extends "issue_tracker_app/track_base.html" %}
+{% block title %}
+<title>{{ user.first_name }} {{ user.last_name }} - Issue Tracker</title>
+{% endblock %}
+{% block navbar %}
+<div class="w3-top">
+    <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+        <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-teal" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="{% url 'track:track-about' %}" class="w3-bar-item w3-button w3-padding-large w3-white">Issue Tracker</a>
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-black w3-hover-white">Profile</a>
+        <span class="w3-bar-item w3-hide-small w3-padding-large w3-teal">Project</span>
+        <span class="w3-bar-item w3-hide-small w3-padding-large">Issue</span>
+        <a href="{% url 'track:track-about' %}"><i class="w3-bar-item w3-large fa fa-info-circle w3-hover-opacity w3-padding-16 w3-right"></i></a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+        <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-padding-large">Logout</a>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-padding-large">Profile</a>
+        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Project</span>
+        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Issue</span>
+    </div>
+</div>
+{% endblock %}
+{% block headertable %}
+        <table class="w3-table">
+            <tr>
+                <div class="w3-third">
+                    <th><h3>Current User Profile:</h3></th>
+                    <td><h3>{{ user.first_name }} {{ user.last_name }}</h3></td>
+                </div>
+                <div class="w3-third">
+                    <th>Username :</th>
+                    <td>{{ user.username }}</td>
+                    <br />
+                    <th>Email :</th>
+                    <td>{{ user.email }}</td>
+                </div>
+                <td class="w3-third w3-centered">
+                    <a href="{% url 'user-update' user.pk %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        </table>
+{% endblock %}
+{% block body %}
+<h3 class="w3-left-align">
+    Projects
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a href="{% url 'track:track-project-create' %}" class="w3-button w3-black w3-medium w3-border-0">
+        Create
+    </a>
+</h3>
+<br />
+<table class="w3-table w3-responsive">
+    <tr class="w3-centered w3-black w3-opacity">
+        <th></th>
+        <th></th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Created</th>
+        <th>Owner</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for project in user.project_set.all %}
+        <tr class="w3-teal w3-hover-white">
+            <td>
+                <a href="{% url 'track:track-project-details' project.slug %}" class="w3-button w3-black w3-small">
+                    View
+                </a>
+            </td>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ project.title }}</td>
+            <td>{{ project.description }}</td>
+            <td>{{ project.date_created|date:"n/j/Y" }}</td>
+            <td>{{ project.owner }}</td>
+            <td>
+                <a href="{% url 'track:track-project-update' project.slug %}" class="w3-button w3-black w3-small">
+                    Edit
+                </a>
+            </td>
+            <td>
+                <a href="{% url 'track:track-project-delete' project.slug %}" class="w3-button w3-black w3-small">
+                    Del
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock body %}

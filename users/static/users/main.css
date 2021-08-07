@@ -1,0 +1,17 @@
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+ }
+
+.login-position {
+    height: 100%;
+}
