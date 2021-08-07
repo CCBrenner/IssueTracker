@@ -21,12 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-vgk-k(0q^5$5$a6e+sbx8&fmxw2(z0h3!8+v2wk)6^2xc!og!e'
+# SECRET_KEY = 'django-insecure-vgk-k(0q^5$5$a6e+sbx8&fmxw2(z0h3!8+v2wk)6^2xc!og!e'
+SECRET_KEY = os.eviron.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['issuetrackerappccb.herokuapp.com']
 
 
 # Application definition
