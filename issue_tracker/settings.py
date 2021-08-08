@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['issuetrackerappccb.herokuapp.com']
 
@@ -108,6 +108,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Avoids sending CSRF and session cookies over HTTP accidentally
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
