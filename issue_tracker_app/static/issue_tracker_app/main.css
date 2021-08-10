@@ -2,6 +2,10 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0px;
 }
 
+.background-color {
+    min-height: 100vh;
+}
+
 .footer {
     position: fixed;
     left: 0;

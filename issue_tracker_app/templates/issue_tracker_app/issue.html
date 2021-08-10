@@ -24,13 +24,20 @@
 </div>
 {% endblock navbar %}
 {% block headertable %}
-<table class="w3-table">
+<br /><br /><br />
+<!-- for medium and large screens -->
+<table class="w3-table w3-hide-small">
     <tr>
         <th><h3>Current Issue:</h3></th>
         <td><h3>{{ issue.title }}</h3></td>
         <th>Content:</th>
         <td>{{ issue.content }}</td>
     </tr>
+</table>
+<!-- for small screens -->
+<table class="w3-hide-medium w3-hide-large">
+    <tr><td><h3>Current Issue: {{ issue.title }}</h3></td></tr>
+    <tr><td>Content: {{ issue.content }}</td></tr>
 </table>
 {% endblock headertable %}
 {% block body %}

@@ -40,7 +40,6 @@
 
 <!-- Header -->
 <header class="w3-container w3-teal w3-center w3-padding-16" style="padding:128px 16px">
-    <br /><br /><br />
     <div>
         {% block headertable %}{% endblock %}
     </div>
@@ -58,13 +57,24 @@
 </div>
 
 <!-- Footer -->
-<footer class="w3-container w3-black w3-center w3-opacity w3-padding-small footer">  
-    <div class="w3-xlarge">
+<footer class="w3-container w3-black w3-center w3-opacity w3-padding-small footer"> 
+    <!-- for medium and large screens -->
+    <div class="w3-xlarge w3-hide-small">
         <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
         <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
         <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
         &nbsp;&nbsp;&nbsp;
-        <a href="{% url 'track:track-about' %}" class="w3-text-grey w3-medium">***Produced by Collyn Christopher Brennner***</a>
+        <a href="{% url 'track:track-about' %}"><span  class="w3-text-grey w3-medium">***Produced by Collyn C. Brennner***</span></a>
+    </div>
+    <!-- for small screens -->
+    <div class="w3-large w3-hide-large w3-hide-medium">
+        <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+        &nbsp;
+        <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+        &nbsp;
+        <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+        <br />
+        <a href="{% url 'track:track-about' %}"><span  class="w3-text-grey w3-medium">***Produced by Collyn C. Brennner***</span></a>
     </div>
 </footer>
 </body>

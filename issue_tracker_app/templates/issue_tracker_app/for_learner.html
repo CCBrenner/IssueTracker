@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-    .w3-bar,h1,button,a {font-family: "Montserrat", sans-serif}
+    .w3-bar,h1,button,a {
+        font-family: "Montserrat", sans-serif;
+        text-decoration: None;
+    }
     .theader,body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .fa-anchor,.fa-coffee {font-size:200px}
     </style>
@@ -53,10 +56,9 @@
     </div>
 </div>
 
-<p class="w3-quarter"> </p>
+<div class="w3-quarter"><p></p></div>
+
 <article class="w3-container w3-half w3-white w3-padding-64">
-    
-    <br />
 
     <!-- Header -->
     <header class="w3-container w3-teal w3-center w3-padding-16" style="padding:128px 16px">
@@ -96,13 +98,24 @@
 <p class="w3-rest"> </p>
 <b></b>
 <!-- Footer -->
-<footer class="w3-container w3-black w3-center w3-opacity w3-padding-small footer">  
-    <div class="w3-xlarge">
+<footer class="w3-container w3-black w3-center w3-opacity w3-padding-small footer">
+    <!-- for medium and large screens -->
+    <div class="w3-xlarge w3-hide-small">
         <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
         <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
         <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
         &nbsp;&nbsp;&nbsp;
-        <span  class="w3-text-grey w3-medium">***Produced by Collyn Christopher Brenner <em>(about this app)</em>***</span>
+        <a href="{% url 'users-about' %}"><span  class="w3-text-grey w3-medium">***Produced by Collyn C. Brennner***</span></a>
+    </div>
+    <!-- for small screens -->
+    <div class="w3-large w3-hide-large w3-hide-medium">
+        <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+        &nbsp;
+        <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+        &nbsp;
+        <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+        <br />
+        <a href="{% url 'users-about' %}"><span  class="w3-text-grey w3-medium">***Produced by Collyn C. Brennner***</span></a>
     </div>
 </footer>
 </body>

@@ -12,7 +12,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-    .w3-bar,h1,button,a {font-family: "Montserrat", sans-serif}
+    .w3-bar,h1,button,a {
+        font-family: "Montserrat", sans-serif;
+        text-decoration: None;
+    }
     .theader,body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
     .fa-anchor,.fa-coffee {font-size:200px}
     </style>
@@ -53,10 +56,9 @@
     </div>
 </div>
 
-<p class="w3-quarter"> </p>
+<div class="w3-quarter"><p></p></div>
+
 <article class="w3-container w3-half w3-white w3-padding-64">
-    
-    <br />
 
     <!-- Header -->
     <header class="w3-container w3-teal w3-center w3-padding-16" style="padding:128px 16px">
@@ -77,21 +79,34 @@
         <h4>Production and Purpose</h4>
         <p>'Issue Tracker' was created during a 6-week class over the span of less than 5 weeks as a capstone project by Collyn Christopher Brenner to fulfill two purposes. The first of these was to submit as a capstone project in finishing up his undergrad as a Computer Information Technology major. The second purpose was to be exactly what the class intended the project to be: A portfolio artifact to not just tell but to <em> show </em> the kind of knowledge and skills Collyn had acquired while in school at Trevecca Nazarene University. </p>
         <br />
-        <a href="{% url 'track:track-for-learner' %}" class="w3-button w3-teal w3-hover-white w3-medium w3-border-0">
-            For the Learner: How I Learned to Do This and How You Can Too
-        </a>
+        <div class="w3-center">
+            <a href="{% url 'track:track-for-learner' %}" class="w3-button w3-center w3-teal w3-hover-white w3-medium w3-border-0">
+                For the Learner: How I Learned to <br />Do This and How You Can Too
+            </a>
+        </div>
     </div>
 </article>
 <p class="w3-rest"> </p>
 <b></b>
 <!-- Footer -->
 <footer class="w3-container w3-black w3-center w3-opacity w3-padding-small footer">  
-    <div class="w3-xlarge">
+    <!-- for medium and large screens -->
+    <div class="w3-xlarge w3-hide-small">
         <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
         <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
         <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
         &nbsp;&nbsp;&nbsp;
-        <span  class="w3-text-grey w3-medium">***Produced by Collyn Christopher Brenner <em>(about this app)</em>***</span>
+        <a href="{% url 'users-about' %}"><span  class="w3-text-grey w3-medium">***Produced by Collyn C. Brennner***</span></a>
+    </div>
+    <!-- for small screens -->
+    <div class="w3-large w3-hide-large w3-hide-medium">
+        <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+        &nbsp;
+        <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+        &nbsp;
+        <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+        <br />
+        <a href="{% url 'users-about' %}"><span  class="w3-text-grey w3-medium">***Produced by Collyn C. Brennner***</span></a>
     </div>
 </footer>
 </body>

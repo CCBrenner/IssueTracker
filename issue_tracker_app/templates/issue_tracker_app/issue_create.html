@@ -24,7 +24,9 @@
 </div>
 {% endblock %}
 {% block headertable %}
-<table class="w3-table">
+<br /><br /><br />
+<!-- for medium and large screens -->
+<table class="w3-table w3-hide-small">
     <tr>
         <div class="w3-third">
             <th><h3>Current Project:</h3></th>
@@ -35,11 +37,23 @@
             <td>{{ project.description }}</td>
         </div>
         <td class="w3-third w3-centered">
-            <a href="{% url 'track:track-project-update' project.slug %}" class="w3-button w3-black w3-small w3-border-0">
+            <a href="{% url 'track:track-project-update' project.slug %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
                 Edit
             </a>
         </td>
     </tr>
+</table>
+<!-- for small screens -->
+<table class="w3-hide-medium w3-hide-large">
+        <tr><td><h3>Current Project: {{ project.title }}</h3></td></tr>
+        <tr><td>Description: {{ project.description }}</td></tr>
+        <tr>
+            <td class="w3-third w3-centered">
+                <a href="{% url 'user-update' user.pk %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
+                    Edit
+                </a>
+            </td>
+        </tr>
 </table>
 {% endblock %}
 {% block body %}

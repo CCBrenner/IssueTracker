@@ -35,7 +35,8 @@
 </head>
 <body class="w3-teal" >
 
-<p class="w3-quarter"> </p>
+<div class="w3-quarter"><p></p></div>
+    
 <article class="w3-container w3-half w3-padding-64">
 
     <!-- Header -->
@@ -60,18 +61,31 @@
         <a href="{% url 'users-login' %}" class="w3-button w3-black">Back to Login</a>
     </div>
     <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 </article>
 <p class="w3-rest"> </p>
 <b></b>
 
 <!-- Footer -->
-<footer class="w3-container w3-padding-16 w3-black w3-center footer">  
-    <div class="w3-xlarge">
+<footer class="w3-container w3-padding w3-black w3-center footer">  
+    <!-- for medium and large screens -->
+    <div class="w3-xlarge w3-hide-small">
         <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
         <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
         <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
         &nbsp;&nbsp;&nbsp;
-        <a href="{% url 'users-about' %}"><span  class="w3-text-grey w3-medium">***Produced by Collyn Christopher Brennner***</span></a>
+        <a href="{% url 'users-about' %}"><span  class="w3-text-grey w3-medium">***Produced by Collyn C. Brennner***</span></a>
+    </div>
+    <!-- for small screens -->
+    <div class="w3-large w3-hide-large w3-hide-medium">
+        <a href="https://www.linkedin.com/in/collyn-b-7a6942a8" target="blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+        &nbsp;
+        <a href="https://www.facebook.com/collynb" target="blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+        &nbsp;
+        <a href="https://twitter.com/cc_brenner" target="blank"><i class="fa fa-twitter w3-hover-opacity"></i></a>
+        <br />
+        <a href="{% url 'users-about' %}"><span  class="w3-text-grey w3-medium">***Produced by Collyn C. Brennner***</span></a>
     </div>
 </footer>
 </body>

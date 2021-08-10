@@ -24,16 +24,40 @@
 </div>
 {% endblock %}
 {% block headertable %}
-    <table class="w3-table">
-        <tr>
-            <th><h3>Current User Profile :</h3></th>
+<br /><br />
+<table class="w3-table w3-hide-small">
+    <tr>
+        <div class="w3-third">
+            <th><h3>Current User Profile:</h3></th>
             <td><h3>{{ user.first_name }} {{ user.last_name }}</h3></td>
+        </div>
+        <div class="w3-third">
             <th>Username :</th>
             <td>{{ user.username }}</td>
+            <br />
             <th>Email :</th>
-            <td>{{ user.username }}</td>
-        </tr>
-    </table>
+            <td>{{ user.email }}</td>
+        </div>
+        <td class="w3-third w3-centered">
+            <a href="{% url 'user-update' user.pk %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
+                Edit
+            </a>
+        </td>
+    </tr>
+</table>
+<!-- for small screens -->
+<table class="w3-hide-medium w3-hide-large">
+    <tr><td><h3>Current User Profile: {{ user.first_name }} {{ user.last_name }}</h3></td></tr>
+    <tr><td>Username: {{ user.username }}</td></tr>
+    <tr><td>Email: {{ user.email }}</td></tr>
+    <tr>
+        <td class="w3-third w3-centered">
+            <a href="{% url 'user-update' user.pk %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
+                Edit
+            </a>
+        </td>
+    </tr>
+</table>
 {% endblock %}
 {% block body %}
     <h3 class="w3-left-align">
