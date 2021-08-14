@@ -17,9 +17,9 @@
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
         <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-padding-large">Logout</a>
-        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-padding-large">Profile</a>
-        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Project</span>
-        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Issue</span>
+        <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-padding-large w3-black">Profile</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Project</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Issue</a>
     </div>
 </div>
 {% endblock %}
@@ -66,7 +66,7 @@
 </table>
 <!-- for small screens -->
 <table class="w3-hide-medium w3-hide-large">
-    <tr><td><h3>Current User Profile: {{ user.first_name }} {{ user.last_name }}</h3></td></tr>
+    <tr><td><h3>Current User Profile:<br />{{ user.first_name }} {{ user.last_name }}</h3></td></tr>
     <tr><td>Username: {{ user.username }}</td></tr>
     <tr><td>Email: {{ user.email }}</td></tr>
     <tr>

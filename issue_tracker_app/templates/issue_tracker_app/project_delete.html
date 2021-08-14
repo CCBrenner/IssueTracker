@@ -18,8 +18,8 @@
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
         <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-padding-large">Logout</a>
         <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-padding-large">Profile</a>
-        <a href="{% url 'track:track-project-details' project.slug %}" class="w3-bar-item w3-button w3-padding-large">Project</a>
-        <span class="w3-bar-item w3-button w3-padding-large w3-grey">Issue</span>
+        <a href="{% url 'track:track-project-details' project.slug %}" class="w3-bar-item w3-button w3-padding-large w3-black">Project</a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Issue</a>
     </div>
 </div>
 {% endblock %}

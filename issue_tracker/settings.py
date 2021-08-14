@@ -23,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # for development:
-# SECRET_KEY = 'django-insecure-vgk-k(0q^5$5$a6e+sbx8&fmxw2(z0h3!8+v2wk)6^2xc!og!e'
+SECRET_KEY = 'django-insecure-vgk-k(0q^5$5$a6e+sbx8&fmxw2(z0h3!8+v2wk)6^2xc!og!e'
 # for production:
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['issuetrackerappccb.herokuapp.com']
 
@@ -155,6 +155,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 EMAIL_HOST_USER = 'brennerapps.noreply@gmail.com'
-EMAIL_HOST_PASSWORD = 'crmgmaiaoagtqamt'
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
+# Sets environment variables here to ones stored on Heroku server
 django_heroku.settings(locals())

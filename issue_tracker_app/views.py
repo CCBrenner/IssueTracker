@@ -56,7 +56,9 @@ class ProjectCreateView(CreateView):
         form_object = form.instance
         form_object.owner = self.request.user
         dtnowstr = datetime.datetime.now().strftime('%m%d%Y%H%M%S%f')
-        form_object.slug = form_object.title.replace(' ', '-') + dtnowstr
+        rpltitle = form_object.title.replace(
+            ' ', '-').replace('/', '-')
+        form_object.slug = rpltitle + dtnowstr
         return super().form_valid(form)
 
 

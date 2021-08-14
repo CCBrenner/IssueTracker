@@ -19,7 +19,7 @@
         <a href="{% url 'users-logout' %}" class="w3-bar-item w3-button w3-padding-large">Logout</a>
         <a href="{% url 'track:track-home' %}" class="w3-bar-item w3-button w3-padding-large">Profile</a>
         <a href="{% url 'track:track-project-details' issue.parent_project.slug %}" class="w3-bar-item w3-button w3-padding-large">Project</a>
-        <a href="{% url 'track:track-issue-details' issue.slug %}" class="w3-bar-item w3-button w3-padding-large">Issue</a>
+        <a href="{% url 'track:track-issue-details' issue.slug %}" class="w3-bar-item w3-button w3-padding-large w3-black">Issue</a>
     </div>
 </div>
 {% endblock %}
