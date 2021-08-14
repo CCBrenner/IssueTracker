@@ -44,16 +44,16 @@
     </tr>
 </table>
 <!-- for small screens -->
-<table class="w3-hide-medium w3-hide-large">
-        <tr><td><h3>Current Project: {{ project.title }}</h3></td></tr>
-        <tr><td>Description: {{ project.description }}</td></tr>
-        <tr>
-            <td class="w3-third w3-centered">
-                <a href="{% url 'user-update' user.pk %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
-                    Edit
-                </a>
-            </td>
-        </tr>
+<table class="w3-table w3-hide-medium w3-hide-large">
+    <tr><td><h3>Current Project:<br />{{ project.title }}</h3></td></tr>
+    <tr><td>Description: {{ project.description }}</td></tr>
+    <tr>
+        <td class="w3-third w3-centered">
+            <a href="{% url 'track:track-project-update' project.slug %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
+                Edit
+            </a>
+        </td>
+    </tr>
 </table>
 {% endblock %}
 {% block body %}

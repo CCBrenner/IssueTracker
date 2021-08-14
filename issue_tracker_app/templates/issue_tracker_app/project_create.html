@@ -46,12 +46,12 @@
     </tr>
 </table>
 <!-- for small screens -->
-<table class="w3-hide-medium w3-hide-large">
-    <tr><td><h3>Current User Profile: {{ user.first_name }} {{ user.last_name }}</h3></td></tr>
-    <tr><td>Username: {{ user.username }}</td></tr>
-    <tr><td>Email: {{ user.email }}</td></tr>
+<table class="w3-table w3-hide-medium w3-hide-large w3-centered">
+    <tr><td class="w3-padding-small"><h3>Current User Profile:<br />{{ user.first_name }} {{ user.last_name }}</h3></td></tr>
+    <tr><td class="w3-padding-small">Username: {{ user.username }}</td></tr>
+    <tr><td class="w3-padding-small">Email: {{ user.email }}</td></tr>
     <tr>
-        <td class="w3-third w3-centered">
+        <td class="w3-padding-small">
             <a href="{% url 'user-update' user.pk %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
                 Edit
             </a>
