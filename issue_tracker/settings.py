@@ -150,11 +150,11 @@ LOGIN_URL = 'users-login'
 
 # email settings for resetting user's password via email with reset password contained
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
+EMAIL_HOST = str(os.environ.get('EMAIL_HOST'))
+EMAIL_PORT = int(os.environ.get('EMAIL_PORT'))
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = 'brennerapps.noreply@gmail.com'
+EMAIL_HOST_USER = str(os.environ.get('EMAIL_HOST_USER'))
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # Sets environment variables here to ones stored on Heroku server
