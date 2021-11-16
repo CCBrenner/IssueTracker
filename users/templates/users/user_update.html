@@ -49,19 +49,19 @@
 <!-- for medium screens -->
 <table class="w3-table w3-hide-small w3-hide-large">
     <tr>
-        <th><h3>Current User Profile:</h3></th>
-        <th>Username:</th>
-        <td>{{ user.username }}</td>
-        <td class="w3-third w3-centered">
+        <th class="w3-padding-small"><h3>Current User Profile:</h3></th>
+        <th class="w3-padding-small">Username:</th>
+        <td class="w3-padding-small">{{ user.username }}</td>
+        <td class="w3-third w3-centered w3-padding-small">
             <a href="{% url 'user-update' user.pk %}" class="w3-button w3-black w3-hover-white w3-small w3-border-0">
                 Edit
             </a>
         </td>
     </tr>
     <tr>
-        <td><h3>{{ user.first_name }} {{ user.last_name }}</h3></td>
-        <th>Email:</th>
-        <td>{{ user.email }}</td>
+        <td class="w3-padding-small"><h3>{{ user.first_name }} {{ user.last_name }}</h3></td>
+        <th class="w3-padding-small">Email:</th>
+        <td class="w3-padding-small">{{ user.email }}</td>
     </tr>
 </table>
 <!-- for small screens -->

@@ -145,6 +145,3 @@ def issue_delete_view(request, slug):
         'issue': issue
     }
     return render(request, template, context)
-
-
-# ():{}_<>
