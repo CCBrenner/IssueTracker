@@ -3,7 +3,7 @@
 Name: Issue Tracker (https://issuetracker.brenner.app)
 
 Description:
-This is a web app coded in Django which uses the Python language. Other technologies used include HTML, CSS, JS, W3.CSS, and PostgreSQL. It is a simple web app that allows for creation of a user, projects, and issues in a tree structure. It works like a bug tracker and was designed for use with software engineering though it can be expanded in its scope to take on any kind of project or to-do list use case. This web app was modeled after the web app Jira.
+This is a web app coded in Django, one of two most popular Python frameworks. Other technologies used include HTML, CSS, JS, W3.CSS, and PostgreSQL. It is a simple web app that allows for creation of a user, projects, and issues in a tree structure. It works like a bug tracker and was designed for use with software development use cases though it can be expanded in its scope to take on any kind of project or to-do list use case. This web app was modeled after the web app Jira.
 
 Badges: none
 

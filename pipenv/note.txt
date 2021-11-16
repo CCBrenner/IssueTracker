@@ -1,0 +1,9 @@
+This folder is to house the virtualenv files for the project. An attempt was made using pipenv but due to
+inexperience and novelty it was benched for the moment in favor of a different endeavor. 
+
+Pipenv is meant to replaceme virtualenv and perform similar functions as npm for Node.js. Package management is what
+is being developed on with this - simpler ways to install required packages of a project with a local scope easily and
+seemlessly and to create such a file functioning similar to requirements.txt which can be create from the projects
+current dependencies for transportability, most notably for pushing to a GitHub repo and cloning from it. 
+
+More research is needed on how to use pipenv or virtualenv effectively for these purposes (pipenv uses virtualenv within itself).
